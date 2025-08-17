@@ -56,6 +56,12 @@ local targetTechs = {
   ['empty-sulfur-dioxide-barrel'] = 'electrochemical-science-pack',
   ['sulfuric-acid-dilute-barrel'] = 'sulfate-processing-2',
   ['empty-sulfuric-acid-dilute-barrel'] = 'sulfate-processing-2',
+
+  -- CERYS
+  ['mixed-oxide-waste-solution-barrel'] = 'cerys-mixed-oxide-waste-reprocessing',
+  ['empty-mixed-oxide-waste-solution-barrel'] = 'cerys-mixed-oxide-waste-reprocessing',
+  ['nitric-acid-barrel'] = 'cerys-fulgoran-cryogenics',
+  ['empty-nitric-acid-barrel'] = 'cerys-fulgoran-cryogenics',
 }
 
 
