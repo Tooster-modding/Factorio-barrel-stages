@@ -10,11 +10,14 @@ following:
 - <fluidName>-barrel
 - empty-<fluidName>-barrel
 
+To skip or hard-code a fluid to a certain technology, see exceptions.lua.
+
 --]]
 
 local technologyData = data.raw["technology"]
 local recipeData = data.raw["recipe"]
 local fluidTech = technologyData["fluid-handling"]
+local exceptions = require("exceptions")
 
 ---@type table<string, string>
 local fluidToTechMapping = {}
@@ -22,8 +25,22 @@ local fluidToTechMapping = {}
 -- Logs to the mod file for convenience purposes. Contents are added to "script-output/barrel-stages.log"
 ---@param msg string
 local function modLog(msg)
-  helpers.write_file("barrel-stages.log", msg, true)
+  helpers.write_file("barrel-stages.log", msg .. "\n", true)
 end
+
+---@param arr string[] - Array of strings that we want to search through
+---@param target string - The target string we want to find in the array
+---@return boolean - true if found, false otherwise
+local function arrayContains(arr, target)
+  for i = 1, #arr do
+    if arr[i] == target then
+      return true
+    end
+  end
+  return false -- If we got here, it's not in the array
+end
+
+modLog("****************** NEW RUN BEGIN ******************")
 
 -- First pass: Find which technology unlocks each fluid
 -- We need to check all technologies and their effects to see which ones unlock fluid recipes
@@ -38,7 +55,14 @@ for techName, tech in pairs(technologyData) do
           for _, result in ipairs(recipe.results) do
             if result.type == "fluid" and result.name then
               -- Map the fluid to the technology that unlocks it
-              modLog("Tech: '" .. tech.name .. "' - Fluid: '" .. result.name .. "'\n")
+              modLog("Fluid: '" .. result.name .. "' - Tech: '" .. tech.name .. "'")
+
+              -- Skip recipes that we want to intentionally skip
+              if arrayContains(exceptions.skips, result.name) then
+                modLog("Skipped fluid: '" .. result.name .. "'")
+                goto nextRecipe -- Need to do this, otherwise other recipes get skipped
+              end
+
               -- Set it if it's not set yet
               if not fluidToTechMapping[result.name] then
                 fluidToTechMapping[result.name] = techName
@@ -48,6 +72,8 @@ for techName, tech in pairs(technologyData) do
               if fluidToTechMapping[result.name] == "fluid-handling" then
                 fluidToTechMapping[result.name] = techName
               end
+
+              ::nextRecipe::
             end
           end
         end
@@ -56,7 +82,15 @@ for techName, tech in pairs(technologyData) do
   end
 end
 
-modLog("FLUIDS TECH MAPPING: " .. helpers.table_to_json(fluidToTechMapping) .. "\n")
+-- Override the mapping with the exceptions
+for fluidName, techName in pairs(exceptions.overrides) do
+  if fluidToTechMapping[fluidName] then
+    fluidToTechMapping[fluidName] = techName
+    modLog("Overwrote '" .. fluidName .. "' with tech: '" .. techName .. "'")
+  end
+end
+
+modLog("FLUIDS TECH MAPPING: " .. helpers.table_to_json(fluidToTechMapping))
 
 -- Now we can convert those mappings into their barrel-equivalents
 local barrelToTechMapping = {}
@@ -68,7 +102,7 @@ for fluidName, techName in pairs(fluidToTechMapping) do
   barrelToTechMapping[emptyBarrelName] = techName
 end
 
-modLog("BARRELS TECH MAPPING: " .. helpers.table_to_json(barrelToTechMapping) .. "\n")
+modLog("BARRELS TECH MAPPING: " .. helpers.table_to_json(barrelToTechMapping))
 
 local n = #fluidTech.effects
 local patchedEffects = {} -- resulting table must be continuous, so we can't simply remove entries
