@@ -62,6 +62,10 @@ local targetTechs = {
   ['empty-mixed-oxide-waste-solution-barrel'] = 'cerys-mixed-oxide-waste-reprocessing',
   ['nitric-acid-barrel'] = 'cerys-fulgoran-cryogenics',
   ['empty-nitric-acid-barrel'] = 'cerys-fulgoran-cryogenics',
+
+  -- ON WAYWARD SEAS
+  ['gleba-resin-barrel' ]= 'resin-tech',
+  ['empty-gleba-resin-barrel' ]= 'resin-tech',
 }
 
 
