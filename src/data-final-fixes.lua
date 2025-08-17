@@ -10,10 +10,7 @@ following:
 - <fluidName>-barrel
 - empty-<fluidName>-barrel
 
-
-
 --]]
-
 
 local technologyData = data.raw["technology"]
 local recipeData = data.raw["recipe"]
