@@ -25,24 +25,6 @@ local function modLog(msg)
   helpers.write_file("barrel-stages.log", msg, true)
 end
 
--- Helper function to convert a table to a string
----@param tableToDump table - The table that you want to conver to a string
----@return string - The table, dumped as an ugly string
-local function dumpTable(tableToDump)
-  if type(tableToDump) == "table" then
-    local s = "{ "
-    for k, v in pairs(tableToDump) do
-      if type(k) ~= "number" then
-        k = '"' .. k .. '"'
-      end
-      s = s .. "[" .. k .. "] = " .. dumpTable(v) .. ","
-    end
-    return s .. "} "
-  else
-    return tostring(tableToDump)
-  end
-end
-
 -- First pass: Find which technology unlocks each fluid
 -- We need to check all technologies and their effects to see which ones unlock fluid recipes
 for techName, tech in pairs(technologyData) do
@@ -74,7 +56,7 @@ for techName, tech in pairs(technologyData) do
   end
 end
 
-modLog("FLUIDS TECH MAPPING: " .. dumpTable(fluidToTechMapping) .. "\n")
+modLog("FLUIDS TECH MAPPING: " .. helpers.table_to_json(fluidToTechMapping) .. "\n")
 
 -- Now we can convert those mappings into their barrel-equivalents
 local barrelToTechMapping = {}
@@ -86,7 +68,7 @@ for fluidName, techName in pairs(fluidToTechMapping) do
   barrelToTechMapping[emptyBarrelName] = techName
 end
 
-modLog("BARRELS TECH MAPPING: " .. dumpTable(barrelToTechMapping) .. "\n")
+modLog("BARRELS TECH MAPPING: " .. helpers.table_to_json(barrelToTechMapping) .. "\n")
 
 local n = #fluidTech.effects
 local patchedEffects = {} -- resulting table must be continuous, so we can't simply remove entries
