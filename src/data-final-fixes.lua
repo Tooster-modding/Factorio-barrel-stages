@@ -28,6 +28,18 @@ local targetTechs = {
 
   ['fluoroketone-hot-barrel'] = 'cryogenic-plant',
   ['empty-fluoroketone-hot-barrel'] = 'cryogenic-plant',
+
+    -- MARAXSIS
+  ['maraxsis-atmosphere-barrel'] = 'maraxsis-glassworking',
+  ['empty-maraxsis-atmosphere-barrel'] = 'maraxsis-glassworking',
+  ['maraxsis-brackish-water-barrel'] = 'maraxsis-hydro-plant',
+  ['empty-maraxsis-brackish-water-barrel'] = 'maraxsis-hydro-plant',
+  ['maraxsis-liquid-atmosphere-barrel'] = 'maraxsis-liquid-atmosphere',
+  ['empty-maraxsis-liquid-atmosphere-barrel'] = 'maraxsis-liquid-atmosphere',
+  ['maraxsis-saline-water-barrel'] = 'planet-discovery-maraxsis',
+  ['empty-maraxsis-saline-water-barrel'] = 'planet-discovery-maraxsis',
+  ['oxygen-barrel'] = 'maraxsis-hydro-plant',
+  ['empty-oxygen-barrel'] = 'maraxsis-hydro-plant',
 }
 
 
