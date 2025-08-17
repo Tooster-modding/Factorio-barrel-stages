@@ -40,6 +40,22 @@ local targetTechs = {
   ['empty-maraxsis-saline-water-barrel'] = 'planet-discovery-maraxsis',
   ['oxygen-barrel'] = 'maraxsis-hydro-plant',
   ['empty-oxygen-barrel'] = 'maraxsis-hydro-plant',
+
+  -- CORRUNDUM
+  ['copper-sulfate-solution-barrel'] = 'recrystalization',
+  ['empty-copper-sulfate-solution-barrel'] = 'recrystalization',
+  ['hydrogen-barrel'] = 'petrol-dehydrogenation-and-combustion',
+  ['empty-hydrogen-barrel'] = 'petrol-dehydrogenation-and-combustion',
+  ['hydrogen-sulfide-barrel'] = 'sulfur-redox1',
+  ['empty-hydrogen-sulfide-barrel'] = 'sulfur-redox1',
+  ['iron-sulfate-solution-barrel'] = 'chalcopyrite-processing',
+  ['empty-iron-sulfate-solution-barrel'] = 'chalcopyrite-processing',
+  ['mixed-sulfate-solution-barrel'] = 'chalcopyrite-processing',
+  ['empty-mixed-sulfate-solution-barrel'] = 'chalcopyrite-processing',
+  ['sulfur-dioxide-barrel'] = 'electrochemical-science-pack',
+  ['empty-sulfur-dioxide-barrel'] = 'electrochemical-science-pack',
+  ['sulfuric-acid-dilute-barrel'] = 'sulfate-processing-2',
+  ['empty-sulfuric-acid-dilute-barrel'] = 'sulfate-processing-2',
 }
 
 
