@@ -9,6 +9,9 @@ M.overrides = {
   ["water"] = "fluid-handling",
   ["crude-oil"] = "oil-gathering",
 
+  -- Maraxsis
+  ["maraxsis-saline-water"] = "planet-discovery-maraxsis",
+
   -- Shattered Planet
   ["helium"] = "s2_noblegases",
   ["ske_americium_241"] = "s2_isotope_liquification",
