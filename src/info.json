@@ -6,5 +6,5 @@
     "contact": "Tooster#3471",
     "factorio_version": "2.0",
     "dependencies": ["base >= 2.0", "? space-age >=2.0"],
-    "description": "Fixes inconsistency with barelling recipes unlocked before unlocking their respective fluids first. Lubricant barrel recipe won't show up before researching lubricant first, and so on. Good for new players — it reduces the sudden overwhelming influx of recipes right after unlocking Fluid Processing."
+    "description": "Fixes inconsistency with barelling recipes unlocked before unlocking their respective fluids first. Lubricant barrel recipe won't show up before researching lubricant first, and so on. Good for new players — it reduces the sudden overwhelming influx of recipes right after unlocking Fluid Processing. Works great with mods adding many new fluids."
 }

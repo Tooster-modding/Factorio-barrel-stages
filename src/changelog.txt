@@ -2,7 +2,7 @@
 Version: 2.0.0
 Date: 2025.08.16 19:39:00-04:00
   Changes:
-    - Added support for generic fluid loading. All non-modded and modded fluids with associated barrel techs should be properly displayed only when their prerequisite technology is unlocked.
+    - Kudos to @macintacos: Added support for generic fluid loading. All non-modded and modded fluids with associated barrel techs should be properly displayed only when their prerequisite technology is unlocked.
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.1
 Date: 2024.10.30 00:37:30+01:00
