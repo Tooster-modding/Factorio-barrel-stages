@@ -1,14 +1,12 @@
 local M = {}
 
--- The items that we should skip processing and let the game handle them normally.
-M.skips = { "water" }
-
 --[[
 The items that should be overridden. You might want to use this if there's a bug in a mod,
 or if you want to be 100% sure a certain recipe will be mapped to a specific technology
 --]]
 M.overrides = {
   -- Vanilla
+  ["water"] = "fluid-handling",
   ["crude-oil"] = "oil-gathering",
 
   -- Shattered Planet
