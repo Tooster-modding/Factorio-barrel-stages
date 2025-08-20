@@ -1,3 +1,4 @@
+-- Hello there :)
 --[[
 
 Iterate over all existing fluids and their barrel/empty barrel corresponding techs and
