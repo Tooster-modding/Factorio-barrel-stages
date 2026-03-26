@@ -1,8 +1,6 @@
 name: Create release
 on: 
   push:
-    tags:
-      - 'v[0-9]+.[0-9]+.[0-9]+'
     paths:
       - 'src/info.json'
 jobs:
@@ -57,8 +55,8 @@ jobs:
     - uses: marvinpinto/action-automatic-releases@latest
       id: aar
       with:
-        automatic_release_tag: "${{ steps.mod_version.outputs.prop }}"
-        title: "${{ steps.factorio_version.outputs.prop }} for factorio ${{ steps.factorio_version.outputs.prop }}"
+        automatic_release_tag: "v${{ steps.mod_version.outputs.prop }}"
+        title: "${{ steps.mod_version.outputs.prop }} for factorio ${{ steps.factorio_version.outputs.prop }}"
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
         prerelease: false
         files: |
