@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.1
+Date: 2026-03-26 20:53:26+01:00
+  Changes:
+    - Fix Maraxsis deadlock — atmosphere tech were unlocked by liquid atmosphere instead of earlier glassworking, making it impossible to progress.
+---------------------------------------------------------------------------------------------------
 Version: 2.0.0
 Date: 2025.08.16 19:39:00-04:00
   Changes:

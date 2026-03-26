@@ -11,6 +11,7 @@ M.overrides = {
 
   -- Maraxsis
   ["maraxsis-saline-water"] = "planet-discovery-maraxsis",
+  ["maraxsis-atmosphere"] = "maraxsis-glassworking",
 
   -- Shattered Planet
   ["helium"] = "s2_noblegases",
