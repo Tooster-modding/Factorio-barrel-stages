@@ -1,0 +1,5 @@
+# Standard dev-only files
+.local/
+logs/
+tmp/
+data/
