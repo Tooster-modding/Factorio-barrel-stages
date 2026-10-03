@@ -8,6 +8,10 @@ M.overrides = {
   -- Vanilla
   ["water"] = "fluid-handling",
   ["crude-oil"] = "oil-gathering",
+  -- Mods use fluoroketone as a coolant: their recipes turn cold into hot and the other
+  -- way around, so they would unlock the barrels without being a source of it.
+  ["fluoroketone-cold"] = "cryogenic-plant",
+  ["fluoroketone-hot"] = "cryogenic-plant",
 
   -- Maraxsis
   ["maraxsis-saline-water"] = "planet-discovery-maraxsis",
